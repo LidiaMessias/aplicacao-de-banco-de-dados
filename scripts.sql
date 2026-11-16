@@ -1,11 +1,12 @@
 # SELECT * FROM ALUNO WHERE SOBRENOME = 'Almeida'; - Comentário
 
-# PARTE 01
+# PARTE 01 - Criação do Banco de Dados 
 CREATE DATABASE DB_T05429_LIDIA_MESSIAS;
 USE DB_T05429_LIDIA_MESSIAS;
 
 SHOW DATABASES;
 
+# Parte 2 – Criação das Tabelas
 CREATE TABLE NOVEL (
 	ID INT AUTO_INCREMENT PRIMARY KEY,
     NAME VARCHAR(120) NOT NULL,
@@ -29,6 +30,7 @@ CREATE TABLE BROADCASTER (
     FOUNDATION_YEAR YEAR NOT NULL
 );
 
+# Parte 3 – Inserção de Dados com Campos Especificados
 INSERT INTO NOVEL (NAME, YEAR, GENRE, AUDIENCE) 
 	VALUES ('Roque Santeiro', 1985, 'Comédia dramática / Sátira Política', 74.0), 
 			('Tieta', 1989, 'Comédia dramática / Regionalista', 65.0),  
@@ -49,16 +51,37 @@ INSERT INTO BROADCASTER (NAME, COUNTRY, FOUNDATION_YEAR)
             ('Band (Rede Bandeirantes)', 'Brasil', 1967),
             ('SBT', 'Brasil', 1981),
             ('RedeTV!', 'Brasil', 1999);
-            
+   
+# Parte 4 – Inserção de Dados sem Especificar
 INSERT INTO NOVEL VALUES 	(NULL, 'Pantanal', 1990, 'Drama / Romance rural', 21.6),
 							(NULL, 'Chiquititas', 1997, 'Novela infantil', 13.5),
                             (NULL, 'A Escrava Isaura', 2004, 'Drama histórico', 14.2),
                             (NULL, 'Avenida Brasil', 2012, 'Drama / Suspense', 38.8),
                             (NULL, 'Os Dez Mandamentos', 2015, 'Drama épico / Bíblico', 16.2);
 
+INSERT INTO ACTOR VALUES	(NULL, 'Cristiana Oliveira', 62, 'Juma Marruá', 150000.00),
+							(NULL, 'Fernanda Souza', 42, 'Mili', 90000.00),
+                            (NULL, 'Bianca Rinaldi', 52, 'Isaura', 110000.00),
+                            (NULL, 'Adriana Esteves', 56, 'Carminha', 210000.00),
+                            (NULL, 'Guilherme Winter', 47, 'Moisés', 120000.00);
+                            
+INSERT INTO BROADCASTER VALUES	(NULL, 'TV Cultura', 'Brasil', 1969),
+								(NULL, 'CNN Brasil', 'Brasil', 2020),
+                                (NULL, 'Televisa', 'México', 1973),
+                                (NULL, 'SIC - Sociedade Independente de Comunicação', 'Portugal', 1992),
+                                (NULL, 'KBS - Korean Broadcasting System', 'Coreia do Sul', 1927);
 
+# Parte 5 – Exercícios de SELECT
+SELECT * FROM NOVEL;
+SELECT * FROM ACTOR;
+SELECT * FROM BROADCASTER;
 
 SELECT NAME, YEAR FROM NOVEL;
+SELECT NAME, GENRE FROM NOVEL;
+SELECT NAME, AGE FROM ACTOR;
+SELECT NAME, SALARY FROM ACTOR;
+SELECT NAME FROM BROADCASTER;
+
 SELECT * FROM NOVEL ORDER BY YEAR ASC;
-SELECT * FROM NOVEL ORDER BY YEAR DESC;
-SELECT * FROM NOVEL;
+SELECT * FROM ACTOR ORDER BY AGE;
+SELECT * FROM BROADCASTER ORDER BY FOUNDATION_YEAR;
