@@ -94,6 +94,40 @@ SELECT * FROM TEAM ORDER BY FOUNDATION_YEAR DESC LIMIT 5;
 # Parte 6
 CREATE USER 'lidia_messias'@'%' IDENTIFIED BY 'senha778899';
 
+# Parte 7
+GRANT SELECT ON DB_T05429_LIDIA_MESSIAS.* TO 'desenvolvedor'@'%';
+GRANT ALL PRIVILEGES ON DB_T05429_LIDIA_MESSIAS.* TO 'manager'@'localhost';
+
+# Parte 8
+FLUSH PRIVILEGES;
+# Esse comando é necessário para atualizar os privilégios que foram alterados ou inseridos diretamente nas tabelas de usuários do sistema, sem precisar reiniciar o serviço do MySQL.
+
+# Parte 9
+START TRANSACTION;
+UPDATE PLAYER SET SALARY = 600000.00 WHERE ID = 9;
+ROLLBACK;
+
+START TRANSACTION;
+UPDATE PLAYER SET SALARY = 600000.00 WHERE ID = 9;
+COMMIT;
+
+# Parte 10
+SELECT * FROM PLAYER 
+	WHERE AGE < 35 AND SALARY < 200000.00
+    ORDER BY SALARY DESC
+    LIMIT 5;
+    
+SELECT NAME, AGE, POSITION FROM PLAYER WHERE POSITION = 'Meia' OR POSITION = 'Volante';
+SELECT * FROM TEAM WHERE NAME LIKE '%Club%';    
+
+
+
+
+
+
+
+
+
 
 
 
